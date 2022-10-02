@@ -68,6 +68,7 @@ export const handler: APIGatewayProxyHandler = async (event) => {
     args: chromium.args,
     defaultViewport: chromium.defaultViewport,
     executablePath: await chromium.executablePath,
+    userDataDir: '/dev/null'
   });
 
   const page = await browser.newPage();
