@@ -78,6 +78,7 @@ export const handler: APIGatewayProxyHandler = async (event) => {
     landscape: true,
     printBackground: true,
     preferCSSPageSize: true,
+    path: process.env.IS_OFFLINE ? './certificate.pdf' : null,
   });
 
   await browser.close();
