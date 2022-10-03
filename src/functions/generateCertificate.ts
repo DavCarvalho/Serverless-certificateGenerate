@@ -73,7 +73,8 @@ export const handler: APIGatewayProxyHandler = async (event) => {
     args: chromium.args,
     defaultViewport: chromium.defaultViewport,
     executablePath: await chromium.executablePath,
-    userDataDir: '/dev/null'
+    userDataDir: '/dev/null',
+    ignoreDefaultArgs: ['--disable-extensions'],
   });
 
   const page = await browser.newPage();
@@ -103,7 +104,7 @@ export const handler: APIGatewayProxyHandler = async (event) => {
   return {
     statusCode: 201,
     body: JSON.stringify({
-      message: "Certificado criado com sucesso",
+      message: "Certificate created with sucess",
       url: `https://certificateserverlessdav.s3.amazonaws.com/${id}.pdf`
     }),
   }
