@@ -75,6 +75,7 @@ export const handler: APIGatewayProxyHandler = async (event) => {
     executablePath: await chromium.executablePath,
     userDataDir: '/dev/null',
     ignoreDefaultArgs: ['--disable-extensions'],
+
   });
 
   const page = await browser.newPage();
@@ -94,7 +95,7 @@ export const handler: APIGatewayProxyHandler = async (event) => {
 
 
   await s3.putObject({
-    Bucket: "certificateserverlessdav",
+    Bucket: "certificateigniteserverlessdav",
     Key: `${id}.pdf`,
     ACL: "public-read",
     Body: pdf,
